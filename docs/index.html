@@ -5,37 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AntiScammer Docs</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0b0b0b;
-      color: #fff;
-      padding: 2rem;
+      font-family: system-ui, sans-serif;
+      background: #111;
+      color: #f0f0f0;
+      display: flex;
+      min-height: 100vh;
     }
-    h1 {
+    nav {
+      background: #1b1b1b;
+      padding: 2rem 1rem;
+      width: 250px;
+      min-height: 100vh;
+      border-right: 1px solid #333;
+    }
+    nav h1 {
       color: #00cfff;
-      font-size: 2.5rem;
-      text-align: center;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
+      text-align: center;
     }
-    h2 {
-      color: #00eaff;
+    nav a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.25rem;
+      border-left: 3px solid transparent;
+    }
+    nav a:hover, nav a.active {
+      background: #222;
+      border-left: 3px solid #00cfff;
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      padding: 2rem 3rem;
+    }
+    main h2 {
+      color: #00cfff;
       margin-top: 2rem;
     }
-    p {
-      line-height: 1.6;
-      color: #ccc;
-      max-width: 800px;
-    }
-    ul {
-      max-width: 800px;
-      color: #ccc;
-    }
-    code {
+    main code {
       background: #222;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
       font-family: monospace;
+    }
+    main ul {
+      padding-left: 1.5rem;
+    }
+    main li {
+      margin-bottom: 0.5rem;
     }
     a {
       color: #00cfff;
@@ -43,31 +68,40 @@
   </style>
 </head>
 <body>
-  <h1>AntiScammer Bot Documentation</h1>
+  <nav>
+    <h1>AntiScammer Docs</h1>
+    <a href="#getting-started" class="active">Getting Started</a>
+    <a href="#setup">Setup</a>
+    <a href="#core-commands">Core Commands</a>
+    <a href="#logging-alerts">Logging & Alerts</a>
+    <a href="#support">Support</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <h2>Getting Started</h2>
-  <p>To invite AntiScammer to your server, use <a href="https://discord.com/oauth2/authorize?client_id=1345943818633085040&permissions=8&integration_type=0&scope=bot+applications.commands">this link</a>.</p>
+  <main>
+    <h2 id="getting-started">Getting Started</h2>
+    <p>To invite AntiScammer to your server, use <a href="https://discord.com/oauth2/authorize?client_id=1345943818633085040&permissions=8&integration_type=0&scope=bot+applications.commands">this link</a>.</p>
 
-  <h2>Setup</h2>
-  <p>Once the bot is in your server, run the command:</p>
-  <p><code>/setup</code></p>
-  <p>This will configure default logging channels and permissions.</p>
+    <h2 id="setup">Setup</h2>
+    <p>After inviting the bot, run:</p>
+    <p><code>/setup</code> — This sets up default logging and permissions.</p>
 
-  <h2>Core Commands</h2>
-  <ul>
-    <li><code>/setup</code> — Initializes bot in your server</li>
-    <li><code>/report</code> — Manually report a user for scam behavior</li>
-    <li><code>/falsepositive</code> — Flag a message or user as not a scam</li>
-    <li><code>/stats</code> — Show bot usage statistics</li>
-  </ul>
+    <h2 id="core-commands">Core Commands</h2>
+    <ul>
+      <li><code>/setup</code> — Initializes AntiScammer in your server</li>
+      <li><code>/report</code> — Report a scammer</li>
+      <li><code>/falsepositive</code> — Report a mistake or bad flag</li>
+      <li><code>/stats</code> — View current stats</li>
+    </ul>
 
-  <h2>Logging & Alerts</h2>
-  <p>AntiScammer will automatically log flagged messages to your configured moderation channel. Each flagged message includes action buttons for moderators.</p>
+    <h2 id="logging-alerts">Logging & Alerts</h2>
+    <p>Flagged messages are posted to your configured moderation log channel. Each message includes moderation buttons for false positive or escalation.</p>
 
-  <h2>Support</h2>
-  <p>Join our <a href="https://discord.gg/BVFsE2Z29Q">Support Server</a> for help, bug reports, and suggestions.</p>
+    <h2 id="support">Support</h2>
+    <p>Join our <a href="https://discord.gg/BVFsE2Z29Q">Support Server</a> for help, appeals, and feedback.</p>
 
-  <h2>Need to Contact Us?</h2>
-  <p>Use the support server or contact the bot developer directly through Discord for integration or escalation.</p>
+    <h2 id="contact">Contact</h2>
+    <p>Need dev integration or want to discuss AntiScammer? Use the support server or message the bot dev directly.</p>
+  </main>
 </body>
 </html>
