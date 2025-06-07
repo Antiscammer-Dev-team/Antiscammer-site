@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AntiScammer Bot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #222;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #0ff;
+    }
+    .scrolling-cards {
+      display: flex;
+      overflow-x: auto;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    .card {
+      flex: 0 0 auto;
+      min-width: 200px;
+      background-color: #333;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      text-align: center;
+    }
+    .card h2 {
+      color: #0ff;
+      margin-bottom: 0.5rem;
+    }
+    .main-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .main-content h2 {
+      color: #0ff;
+    }
+    .button {
+      display: inline-block;
+      margin: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #0ff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #09d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚨 AntiScammer Bot</h1>
+    <p>Fighting scammers and keeping your communities safe.</p>
+  </header>
+
+  <div class="scrolling-cards" id="stats">
+    <div class="card"><h2>Servers</h2><p id="server-count">Loading...</p></div>
+    <div class="card"><h2>Shards</h2><p id="shard-count">Loading...</p></div>
+    <div class="card"><h2>Messages Scanned</h2><p id="messages-count">Loading...</p></div>
+    <div class="card"><h2>Scammers Banned</h2><p id="bans-count">Loading...</p></div>
+  </div>
+
+  <div class="main-content">
+    <h2>What is AntiScammer?</h2>
+    <p>AntiScammer is a powerful Discord bot that uses smart detection and community reporting to identify and stop scam accounts across servers.</p>
+
+    <h2>Invite & Support</h2>
+    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot" class="button">Invite Bot</a>
+    <a href="https://discord.gg/YOURSERVER" class="button">Support Server</a>
+    <a href="https://patreon.com/Antiscammer" class="button">Support on Patreon</a>
+  </div>
+
+  <script>
+    fetch('stats.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('server-count').textContent = data.servers;
+        document.getElementById('shard-count').textContent = data.shards;
+        document.getElementById('messages-count').textContent = data.messages_scanned;
+        document.getElementById('bans-count').textContent = data.scammers_banned;
+      })
+      .catch(err => {
+        document.querySelectorAll('#stats p').forEach(p => p.textContent = 'Unavailable');
+      });
+  </script>
+</body>
+</html>
