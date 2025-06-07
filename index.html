@@ -39,6 +39,7 @@
       background: radial-gradient(circle at top left, #00c6ff, #0072ff);
       padding: 6rem 1rem 4rem;
       text-align: center;
+      animation: fadeIn 1.5s ease;
     }
     header h1 {
       font-size: 3.5rem;
@@ -49,6 +50,10 @@
       color: #e0e0e0;
       max-width: 800px;
       margin: 0 auto;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .hero-buttons {
       margin-top: 2rem;
@@ -100,6 +105,19 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .faq h3 {
+      color: #00cfff;
+      margin-top: 2rem;
+    }
+    .faq p {
+      color: #ccc;
+      line-height: 1.6;
+    }
     .button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -130,7 +148,8 @@
     <div>
       <a href="#about">About</a>
       <a href="#stats">Stats</a>
-      <a href="#support">Support</a>
+      <a href="#faq">FAQ</a>
+      <a href="/docs" target="_blank">Docs</a>
     </div>
   </nav>
 
@@ -156,6 +175,20 @@
       <div class="card"><h2>Shards</h2><p id="shard-count">Loading...</p></div>
       <div class="card"><h2>Messages/Day</h2><p id="messages-count">Loading...</p></div>
       <div class="card"><h2>Scammers Banned</h2><p id="bans-count">Loading...</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <h3>Why AntiScammer?</h3>
+      <p>Because Discord scams are growing fast, and most bots don’t catch them. AntiScammer is designed to target scammers directly, learning from patterns across thousands of servers.</p>
+
+      <h3>Why trust an AI?</h3>
+      <p>We train our AI on real scam messages — confirmed by moderators and community reports. It’s not perfect, but it improves constantly and always puts server safety first.</p>
+
+      <h3>Can I report a false positive?</h3>
+      <p>Absolutely. Every report has a False Positive button that notifies our team immediately. We’ll review it and improve the model accordingly.</p>
     </div>
   </section>
 
