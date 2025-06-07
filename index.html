@@ -7,83 +7,115 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
     }
     header {
-      background-color: #222;
-      padding: 1rem;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      padding: 2rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     header h1 {
       margin: 0;
-      color: #0ff;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #e0e0e0;
     }
     .scrolling-cards {
       display: flex;
       overflow-x: auto;
-      padding: 1rem;
+      scroll-snap-type: x mandatory;
       gap: 1rem;
+      padding: 2rem 1rem;
+      background-color: #121212;
     }
     .card {
       flex: 0 0 auto;
-      min-width: 200px;
-      background-color: #333;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      scroll-snap-align: center;
+      min-width: 250px;
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
       text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
     }
     .card h2 {
-      color: #0ff;
+      color: #00eaff;
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 1.8rem;
+      margin: 0;
     }
     .main-content {
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
     .main-content h2 {
-      color: #0ff;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00cfff;
+    }
+    .main-content p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: #ccc;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
     .button {
-      display: inline-block;
-      margin: 1rem;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       color: #fff;
-      background-color: #0ff;
+      background: #0072ff;
       border: none;
       border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
     .button:hover {
-      background-color: #09d;
+      background: #005fd1;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>🚨 AntiScammer Bot</h1>
-    <p>Fighting scammers and keeping your communities safe.</p>
+    <p>Making Discord safer, one scammer at a time.</p>
   </header>
 
   <div class="scrolling-cards" id="stats">
     <div class="card"><h2>Servers</h2><p id="server-count">Loading...</p></div>
     <div class="card"><h2>Shards</h2><p id="shard-count">Loading...</p></div>
-    <div class="card"><h2>Messages Scanned</h2><p id="messages-count">Loading...</p></div>
-    <div class="card"><h2>Scammers Banned</h2><p id="bans-count">Loading...</p></div>
+    <div class="card"><h2>Messages/Day</h2><p id="messages-count">Loading...</p></div>
+    <div class="card"><h2>Banned Scammers</h2><p id="bans-count">Loading...</p></div>
   </div>
 
   <div class="main-content">
     <h2>What is AntiScammer?</h2>
-    <p>AntiScammer is a powerful Discord bot that uses smart detection and community reporting to identify and stop scam accounts across servers.</p>
+    <p>AntiScammer is a powerful Discord bot built to fight scams, protect communities, and give moderators tools to stay one step ahead. We combine smart AI, global ban sharing, and real-time alerts to stop scammers in their tracks.</p>
 
-    <h2>Invite & Support</h2>
-    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot" class="button">Invite Bot</a>
-    <a href="https://discord.gg/YOURSERVER" class="button">Support Server</a>
-    <a href="https://patreon.com/Antiscammer" class="button">Support on Patreon</a>
+    <div class="button-group">
+      <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot" class="button">Invite Bot</a>
+      <a href="https://discord.gg/YOURSUPPORTSERVER" class="button">Support Server</a>
+      <a href="https://patreon.com/Antiscammer" class="button">Support on Patreon</a>
+    </div>
   </div>
 
   <script>
@@ -95,7 +127,7 @@
         document.getElementById('messages-count').textContent = data.messages_scanned;
         document.getElementById('bans-count').textContent = data.scammers_banned;
       })
-      .catch(err => {
+      .catch(() => {
         document.querySelectorAll('#stats p').forEach(p => p.textContent = 'Unavailable');
       });
   </script>
