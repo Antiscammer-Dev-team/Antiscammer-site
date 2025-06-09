@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AntiScammer Bot</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
   <style>
     body {
       margin: 0;
@@ -116,14 +117,22 @@
     .button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: #fff;
-      border: none;
+      background: linear-gradient(90deg, #0088ff, #00e5ff);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 6px;
       font-weight: bold;
       text-decoration: none;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
+      filter: brightness(1.1);
+    }
+
     .button:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
