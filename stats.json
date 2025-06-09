@@ -1,6 +1,6 @@
 {
-  "servers": 190,
+  "servers": 187,
   "shards": 2,
-  "messages_scanned": 6568.89,
-  "scammers_banned": 32
+  "messages_scanned": 7495,
+  "scammers_banned": 110
 }
