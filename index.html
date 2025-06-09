@@ -79,14 +79,13 @@
     }
     .card-container {
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: start;
-      animation: scrollStats 30s linear infinite;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
     .card {
       flex: 0 0 auto;
       width: 260px;
-      margin: 1rem;
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 10px;
@@ -100,10 +99,6 @@
     .card p {
       font-size: 1.8rem;
       font-weight: bold;
-    }
-    @keyframes scrollStats {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
     }
     .faq {
       max-width: 800px;
