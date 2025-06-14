@@ -27,15 +27,19 @@
       font-size: 1.5rem;
       color: #00cfff;
     }
+    nav div {
+      display: flex;
+      gap: 1.25rem;
+    }
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 1rem;
       font-weight: bold;
     }
     nav a:hover {
       color: #00cfff;
     }
+
     header {
       background: radial-gradient(circle at top left, #00c6ff, #0072ff);
       padding: 6rem 1rem 4rem;
@@ -52,16 +56,19 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .hero-buttons {
       margin-top: 2rem;
     }
     .hero-buttons .button {
       margin: 0.5rem;
     }
+
     section {
       padding: 4rem 2rem;
       text-align: center;
@@ -78,19 +85,22 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
+
     .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      justify-items: center;
+      max-width: 600px;
+      margin: 0 auto;
     }
     .card {
-      flex: 0 0 auto;
-      width: 260px;
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+      width: 100%;
+      max-width: 260px;
     }
     .card h2 {
       color: #00eaff;
@@ -101,6 +111,7 @@
       font-size: 1.8rem;
       font-weight: bold;
     }
+
     .faq {
       max-width: 800px;
       margin: 0 auto;
@@ -114,6 +125,7 @@
       color: #ccc;
       line-height: 1.6;
     }
+
     .button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -133,10 +145,6 @@
       filter: brightness(1.1);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
-    }
     .team, .testers {
       max-width: 900px;
       margin: 0 auto;
@@ -152,6 +160,7 @@
       margin: 0.5rem 0;
       border-radius: 8px;
     }
+
     footer {
       background: #000;
       color: #999;
@@ -169,9 +178,8 @@
       <a href="#stats">Stats</a>
       <a href="#faq">FAQ</a>
       <a href="#testers">Testers</a>
-      <a href="/staff.html"></a>
-      <a href="docs/index.html" target="_blank">Docs</a>
       <a href="staff.html" target="_blank">Team</a>
+      <a href="docs/index.html" target="_blank">Docs</a>
     </div>
   </nav>
 
@@ -188,10 +196,8 @@
   <section id="about">
     <h2>What is AntiScammer?</h2>
     <p>AntiScammer is a smart Discord bot designed to detect, prevent, and report scam attempts automatically. Built with AI, it analyzes messages in real-time, flags suspicious activity, and keeps your community safe — all while learning and adapting from user feedback.</p>
-    <p></p>
     <img src="bot-demo.gif" alt="AntiScammer Bot Demo" width="720" style="margin-top: 2rem; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);" />
   </section>
-
 
   <section id="stats">
     <h2>Live Bot Stats</h2>
@@ -201,6 +207,12 @@
       <div class="card"><h2>Messages/Day</h2><p id="messages-count">Loading...</p></div>
       <div class="card"><h2>Scammers Banned</h2><p id="bans-count">Loading...</p></div>
     </div>
+  </section>
+
+  <section>
+    <a href="https://top.gg/bot/1345943818633085040">
+      <img src="https://top.gg/api/widget/1345943818633085040.svg" alt="Top.gg Widget">
+    </a>
   </section>
 
   <section id="faq">
